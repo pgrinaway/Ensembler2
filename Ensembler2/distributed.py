@@ -223,7 +223,6 @@ class MDSys(object):
     def __init__(self, topology, positions):
         self._topology = topology
         self._positions = positions
-
     @property
     def topology(self):
         return self._topology
@@ -231,16 +230,50 @@ class MDSys(object):
     def positions(self):
         return self._positions
 
-def _read_local_repository(local_repo, pdb_code_input):
+def _read_local_pdb_repository(local_repo, pdb_code_input):
+    """
+    Utility function to read from the local PDB repository (this is considerably
+    more reliable than trying to download relevant PDBs each time)
+
+    Arguments
+    ---------
+    local_repo : String
+        The location of the local repository
+    pdb_code_input : String
+        The PDB code of the structure to retrieve
+
+    Returns
+    -------
+    A string containing the contents of the requested
+    PDB file
+
+    """
     import os
     import gzip
     pdb_code = pdb_code_input.lower()
     pdb_filename = 'pdb%s.ent.gz' % pdb_code
     pdb_path = '%s/%s' %(pdb_code[1:3], pdb_filename)
     filepath = os.path.join(local_repo, pdb_path)
-    return "".join(gzip.GzipFile(filename = filepath).readlines())
+    return "".join(gzip.GzipFile(filename=filepath).readlines())
 
 def blast_pdb_local(fasta_string, num_hits=1000):
+    """
+    A utility function to generate the initial data for Ensembler from a local
+    BLAST database as well as local PDB database
+
+    Arguments
+    ---------
+    fasta_string : String
+        A FASTA-format string containing the sequence to search for
+    num_hits : int, optional (default 1000)
+        The maximum number of hits from the BLAST search
+
+    Returns
+    -------
+    msmseeds : list of MSMSeed objects
+        A list of MSMSeed objects that can be used in a distributed computing framework such as Apache Spark
+
+    """
     import subprocess
     import os
     import shlex
@@ -260,7 +293,7 @@ def blast_pdb_local(fasta_string, num_hits=1000):
             res_data = result.split("\t")
             e_value = float(res_data[2])
             template_chain_code =  "_".join(res_data[1].split("|")[3:])
-            raw_template_pdb = _read_local_repository(local_pdb_repo, template_chain_code.split("_")[0])
+            raw_template_pdb = _read_local_pdb_repository(local_pdb_repo, template_chain_code.split("_")[0])
             template_fasta, pdb_resnums = _retrieve_fasta(template_chain_code)
             template_pdb = StringIO.StringIO()
             raw_template_pdbio = StringIO.StringIO(raw_template_pdb)
@@ -275,9 +308,19 @@ def blast_pdb_local(fasta_string, num_hits=1000):
 
 
 def retrieve_sifts(pdb_id):
-    '''Retrieves a SIFTS .xml file, given a PDB ID. Works by modifying the PDBe download URL.
+    """Retrieves a SIFTS .xml file, given a PDB ID. Works by modifying the PDBe download URL.
     Also removes annoying namespace stuff.
-    '''
+
+    Arguments
+    ---------
+    pdb_id : String
+        The ID of the PDB whose SIFTS should be retrieved
+
+    Returns
+    -------
+    sifts_page_processed : String
+        SIFTS xml with annoying namespace stuff deleted.
+    """
     import re, gzip, StringIO, urllib2
     sifts_download_base_url='ftp://ftp.ebi.ac.uk/pub/databases/msd/sifts/xml/'
     url = sifts_download_base_url + pdb_id.lower() + '.xml.gz'
@@ -309,6 +352,10 @@ def retrieve_sifts(pdb_id):
 
 
 def _retrieve_chain(pdb_code_input, model_id=0):
+    """
+    Retrieves PDB chain from remote server. Fairly unreliable.
+
+    """
     import Bio.PDB as pdb
     import Bio.Seq
     import tempfile
@@ -334,6 +381,20 @@ def _retrieve_chain(pdb_code_input, model_id=0):
     return outval
 
 def _retrieve_fasta(pdb_code_input):
+    """
+    This is a utility function to retrieve the FASTA of a PDB
+
+    Arguments
+    ---------
+    pdb_code_input : String
+        A string of format PDBCODE_CHAINCODE to select which PDB and chain should be retrieved
+
+    Returns
+    -------
+    A FASTA-formatted string of the PDB chain
+
+    The number of residues retrieved
+    """
     from lxml import etree
     import StringIO
     pdb_code, chain_code = pdb_code_input.split("_")
@@ -346,6 +407,22 @@ def _retrieve_fasta(pdb_code_input):
     return "\n".join(['>' + pdb_code_input, pdb_seq]), template_PDBresnums
 
 def align_template_to_reference(msmseed, ref_msmseed):
+    """
+    Performs a structural alignment between the reference and template
+    to retrieve an RMSD
+
+    Arguments
+    ---------
+    msmseed : MSMSeed object
+        An MSMSeed object containing the template to align
+    ref_msmseed : MSMSeed object
+        An MSMSeed object containing the reference structure
+
+    Returns
+    -------
+    msmseed : MSMSeed object
+        The template MSMSeed object with an RMSD to template attribute
+    """
     import modeller
     import tempfile
     import shutil
@@ -387,6 +464,7 @@ def align_template_to_reference(msmseed, ref_msmseed):
 def blast_pdb(target_sequence, num_hits=1000):
     """
     Query the PDB using NCBI blast and return MSMSeeds initialized with the results
+    WARNING: VERY SLOW!!!!
 
     Parameters
     ----------
@@ -414,6 +492,9 @@ def blast_pdb(target_sequence, num_hits=1000):
 
 
 def _extract_seq(pdb):
+    """
+    Utility function to extract sequence. Deprecated.
+    """
     import mdtraj as md
     mdtop = md.Topology.from_openmm(pdb.topology)
     resilist = []
@@ -431,6 +512,26 @@ def _correct_template_fasta(template_fasta):
 
 
 def _PIR_alignment(target_sequence, target_id, template_sequence, template_id):
+    """
+    Produce a pairwise alignment of the target sequences and template sequence in the format
+    that MODELLER likes.
+
+    Arguments
+    ---------
+    target_sequence : String
+        The sequence of the target protein in FASTA format
+    target_id : String
+        The name of the target
+    template_sequence : String
+        The sequence of the target protein in FASTA format
+    template_id : String
+        The name of the template
+
+    Returns
+    -------
+    contents : String
+        The result of the sequence alignment in PIR format (for MODELLER)
+    """
     import Bio.SubsMat
     import Bio.pairwise2
     from Bio.SubsMat import MatrixInfo as matlist
@@ -452,6 +553,14 @@ def _PIR_alignment(target_sequence, target_id, template_sequence, template_id):
     return contents
 
 def align_template_target(msmseed):
+    """
+    Wrapper function for the alignment utility function
+    Deprecated.
+
+    Arguments
+    ---------
+
+    """
     msmseed.alignment = _PIR_alignment(msmseed.target_sequence, msmseed.target_id, msmseed.template_sequence, msmseed.template_id)
     return msmseed
 
@@ -471,7 +580,7 @@ def target_template_alignment(msmseed):
     Returns
     -------
         msmseed : MSMSeed
-            Object containing the alignment between the input sequences accesible from the alignment property
+            Object containing the alignment between the input sequences accessible from the alignment property
 
 
     """

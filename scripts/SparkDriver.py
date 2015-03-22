@@ -1,13 +1,13 @@
 __author__ = 'Patrick B. Grinaway'
 import os
-import MSMSeeder.distributed as msmseeder
+import Ensembler2.distributed as msmseeder
 import pyspark
 
 
 class SparkDriver(object):
     """
-    Driver class for the Spark version of MSMSeeder. Provides a higher-
-    level interface for interacting with MSMSeeder.
+    Driver class for the Spark version of Ensembler2. Provides a higher-
+    level interface for interacting with Ensembler2.
     """
     _starting_templates = None
     _rdd_starting_templates = None

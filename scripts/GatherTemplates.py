@@ -5,8 +5,8 @@
 # Daniel L. Parton <daniel.parton@choderalab.org> - 11 Mar 2014
 #
 
-import MSMSeeder
-import MSMSeeder.attic.initproject
+import Ensembler2
+import Ensembler2.attic.initproject
 
 # ========
 # Parse command-line arguments
@@ -57,14 +57,14 @@ argparser.add_argument('--uniprot_domain_regex', type=str, help=helpstring_unipr
 argparser.add_argument('--structure_paths', type=list, help='Optional list of local directories within which to search for PDB and SIFTS files.', default=None)
 args = argparser.parse_args()
 
-MSMSeeder.attic.core.check_project_toplevel_dir()
+Ensembler2.attic.core.check_project_toplevel_dir()
 
 # ========
 # Parse project metadata
 # ========
 
-project_metadata = MSMSeeder.attic.core.ProjectMetadata()
-project_metadata.load(MSMSeeder.attic.core.project_metadata_filename)
+project_metadata = Ensembler2.attic.core.ProjectMetadata()
+project_metadata.load(Ensembler2.attic.core.project_metadata_filename)
 
 # ========
 # Get the template selection method
@@ -122,8 +122,8 @@ elif template_selection_method == 'UniProt':
 # ========
 
 if template_selection_method == 'TargetExplorerDB':
-    MSMSeeder.attic.initproject.gather_templates_from_TargetExplorerDB(DB_path)
+    Ensembler2.attic.initproject.gather_templates_from_TargetExplorerDB(DB_path)
 
 if template_selection_method == 'UniProt':
-    MSMSeeder.attic.initproject.gather_templates_from_UniProt(UniProt_query_string, UniProt_domain_regex, structure_paths)
+    Ensembler2.attic.initproject.gather_templates_from_UniProt(UniProt_query_string, UniProt_domain_regex, structure_paths)
 
