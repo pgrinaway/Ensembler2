@@ -1,7 +1,7 @@
 __author__ = 'Patrick B. Grinaway'
-import os
-import Ensembler2.distributed as msmseeder
 import pyspark
+
+import attic.distributed as msmseeder
 
 
 class SparkDriver(object):

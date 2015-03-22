@@ -61,6 +61,8 @@ class MSMSeed(object):
         gzipped xml serialized form of explicit-refined model system
     explicit_refined_integrator : String
         gzipped xml serialized form of explicit-refined model integrator
+    explicit_ns_per_day : float
+        An estimate of ns/day for the explicit solvent system. May be incorrect if GPU is shared
 
 
 

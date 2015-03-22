@@ -2,15 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cabeda56-b608-4355-a073-2fd2a058e886" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/GatherTargets.py" afterPath="$PROJECT_DIR$/scripts/GatherTargets.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/GatherTemplates.py" afterPath="$PROJECT_DIR$/scripts/GatherTemplates.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/InitMSMSeederProject.py" afterPath="$PROJECT_DIR$/scripts/InitMSMSeederProject.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSMSeeder/__init__.py" afterPath="$PROJECT_DIR$/MSMSeeder/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MSMSeeder/distributed.py" afterPath="$PROJECT_DIR$/MSMSeeder/distributed.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/resources/4L8G_A.fasta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ensembler2/refinement.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ensembler2/solvation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/test-pipeline.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/test-search-and-model.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/test-search-templates.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Ensembler2/UniProt.py" afterPath="$PROJECT_DIR$/attic/UniProt.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Ensembler2/distributed.py" afterPath="$PROJECT_DIR$/attic/distributed.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ensembler2/MSMSeed.py" afterPath="$PROJECT_DIR$/Ensembler2/MSMSeed.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/SparkDriver.py" afterPath="$PROJECT_DIR$/scripts/SparkDriver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ensembler2/__init__.py" afterPath="$PROJECT_DIR$/Ensembler2/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ensembler2/modelling.py" afterPath="$PROJECT_DIR$/Ensembler2/modelling.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="msmseeder.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +28,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/msmseeder$test_pipeline.coverage" NAME="test-pipeline Coverage Results" MODIFIED="1427064151509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -30,83 +43,132 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.py">
+      <file leaf-file-name="modelling.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/modelling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="3180">
+              <caret line="200" column="41" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="distributed.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/attic/distributed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="885">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
+              <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+              <folding>
+                <element signature="e#75#7044#0" expanded="false" />
+                <element signature="e#7073#7321#0" expanded="false" />
+                <element signature="e#7387#8097#0" expanded="false" />
+                <element signature="e#8153#10223#0" expanded="false" />
+                <element signature="e#10258#11596#0" expanded="false" />
+                <element signature="e#11654#12416#0" expanded="false" />
+                <element signature="e#12459#13715#0" expanded="false" />
+                <element signature="e#13776#15735#0" expanded="false" />
+                <element signature="e#15791#16874#0" expanded="false" />
+                <element signature="e#16904#17149#0" expanded="false" />
+                <element signature="e#17451#18742#0" expanded="false" />
+                <element signature="e#18784#19047#0" expanded="false" />
+                <element signature="e#19094#19777#0" expanded="false" />
+                <element signature="e#19808#22119#0" expanded="false" />
+                <element signature="e#22221#25364#0" expanded="false" />
+                <element signature="e#25401#26528#0" expanded="false" />
+                <element signature="e#27163#31389#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="refinement.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/refinement.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2692" max-vertical-offset="3150">
+              <caret line="197" column="16" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="distributed.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+      <file leaf-file-name="solvation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/solvation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="877" column="79" selection-start="32706" selection-end="32706" vertical-scroll-proportion="0.74197" vertical-offset="12462" max-vertical-offset="13770">
+            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="2610">
+              <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modelling.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
+      <file leaf-file-name="test-pipeline.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/test-pipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1845" max-vertical-offset="5085">
+            <state vertical-scroll-proportion="0.5742358" vertical-offset="832" max-vertical-offset="1290">
+              <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+              <folding>
+                <element signature="e#36#99#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkDriver.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
+      <file leaf-file-name="test-search-and-model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/test-search-and-model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1050">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="15" selection-end-column="23" />
+              <folding>
+                <element signature="e#37#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/search.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="197" max-vertical-offset="915">
+              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+              <folding>
+                <element signature="e#37#47#0" expanded="true" />
+                <element signature="e#907#3019#0" expanded="false" />
+                <element signature="e#3054#4392#0" expanded="false" />
+                <element signature="e#4436#5692#0" expanded="false" />
+                <element signature="e#5723#5968#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="4L8G_A.fasta" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/resources/4L8G_A.fasta">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="refinement.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+      <file leaf-file-name="MSMSeed.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/MSMSeed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="11310">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="initproject.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="493" column="8" selection-start="19758" selection-end="19838" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniProt.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PDB.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="18" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="3465">
+              <caret line="64" column="96" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+              <folding>
+                <element signature="e#7192#7440#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,23 +182,41 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$USER_HOME$/distributed.py" />
-        <option value="$PROJECT_DIR$/MSMSeeder/PDB.py" />
-        <option value="$PROJECT_DIR$/scripts/SparkDriver.py" />
         <option value="$PROJECT_DIR$/MSMSeeder/distributed.py" />
+        <option value="$PROJECT_DIR$/MSMSeeder/MSMSeed.py" />
+        <option value="$PROJECT_DIR$/MSMSeeder/modelling.py" />
+        <option value="$PROJECT_DIR$/MSMSeeder/search.py" />
+        <option value="$PROJECT_DIR$/attic/old-stuff.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/search.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/tests/test-search-templates.py" />
+        <option value="$PROJECT_DIR$/tests/test-search-and-model.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/MSMSeed.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/solvation.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/__init__.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/modelling.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/refinement.py" />
+        <option value="$PROJECT_DIR$/tests/test-pipeline.py" />
       </list>
     </option>
   </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="2" />
+    <option name="y" value="232" />
     <option name="width" value="2560" />
-    <option name="height" value="1330" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -152,7 +232,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -164,7 +244,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -179,7 +258,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="msmseeder" />
+              <option name="myItemId" value="Ensembler2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,7 +268,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Ensembler2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="msmseeder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ensembler2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="msmseeder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ensembler2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -203,16 +314,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="msmseeder" />
+              <option name="myItemId" value="Ensembler2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MSMSeeder" />
+              <option name="myItemId" value="attic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="msmseeder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ensembler2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ensembler2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,6 +348,8 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -230,10 +358,53 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/attic" />
       <recent name="$PROJECT_DIR$/MSMSeeder/attic" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test-pipeline">
+    <configuration default="false" name="test-pipeline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test-pipeline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -244,6 +415,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -268,6 +440,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -291,8 +464,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -305,6 +483,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -317,6 +496,20 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,6 +520,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -334,6 +528,23 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -346,6 +557,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="msmseeder" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -355,93 +567,138 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.test-pipeline" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.test-pipeline" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cabeda56-b608-4355-a073-2fd2a058e886" name="Default" comment="" />
       <created>1407939867497</created>
+      <option name="number" value="Default" />
       <updated>1407939867497</updated>
     </task>
     <task id="LOCAL-00001" summary="Amended Readme to reflect additional dependency">
       <created>1407940163578</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1407940163578</updated>
     </task>
     <task id="LOCAL-00002" summary="Apparently committed a blank file; this is spark-msmseeder thus far.">
       <created>1407940898368</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1407940898368</updated>
     </task>
     <task id="LOCAL-00003" summary="Remove temp directory after downloading PDB">
       <created>1407941042314</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1407941042314</updated>
     </task>
     <task id="LOCAL-00004" summary="Add code to use local installation of blast--biopython blast was very flaky and apparently did strange things to the interpreter">
       <created>1408135011654</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1408135011654</updated>
     </task>
     <task id="LOCAL-00005" summary="Added code borrowed from initproject.py to get template FASTA from sifts (apparently getting it from the PDB doesn't work)">
       <created>1408204499936</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1408204499936</updated>
     </task>
     <task id="LOCAL-00006" summary="Structure comparison and modelling from blast-received structures now working">
       <created>1408220606208</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1408220606208</updated>
     </task>
     <task id="LOCAL-00007" summary="Changed PDB fetching to use Danny's code-- much more robust">
       <created>1408387905496</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1408387905496</updated>
     </task>
     <task id="LOCAL-00008" summary="Minor fixes">
       <created>1409498629994</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1409498629994</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Began reorganizing code and adding tests">
+      <created>1427054510938</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1427054510938</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
+    <frame x="2" y="232" width="2560" height="878" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39925835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21289062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22680412" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3580247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35723114" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990506" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21289062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3580247" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
@@ -460,369 +717,513 @@
     <MESSAGE value="Structure comparison and modelling from blast-received structures now working" />
     <MESSAGE value="Changed PDB fetching to use Danny's code-- much more robust" />
     <MESSAGE value="Minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
+    <MESSAGE value="Began reorganizing code and adding tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Began reorganizing code and adding tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="7" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="898" column="56" selection-start="33808" selection-end="33808" vertical-scroll-proportion="0.0" vertical-offset="13044" max-vertical-offset="13770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="5085">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13044" max-vertical-offset="13770">
+          <caret line="898" column="56" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1050">
+          <caret line="52" column="121" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="11310">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19758" selection-end="19838" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="18" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
+          <caret line="68" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
+          <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="898" column="56" selection-start="33808" selection-end="33808" vertical-scroll-proportion="0.0" vertical-offset="13044" max-vertical-offset="13770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="5085">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13044" max-vertical-offset="13770">
+          <caret line="898" column="56" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1050">
+          <caret line="52" column="121" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="11310">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19758" selection-end="19838" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="18" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
+          <caret line="68" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="345">
+          <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="38" selection-start="15479" selection-end="15508" vertical-scroll-proportion="0.0" vertical-offset="6615" max-vertical-offset="13770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="5085">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6615" max-vertical-offset="13770">
+          <caret line="441" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1050">
+          <caret line="52" column="121" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="11310">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19758" selection-end="19838" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="18" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1695">
+          <caret line="68" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="38" selection-start="15479" selection-end="15508" vertical-scroll-proportion="0.0" vertical-offset="6615" max-vertical-offset="13770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="5085">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6615" max-vertical-offset="13770">
+          <caret line="441" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1050">
+          <caret line="52" column="121" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="11310">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19650" selection-end="19730" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="3249" selection-end="3696" vertical-scroll-proportion="0.0" vertical-offset="1175" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1175" max-vertical-offset="1695">
+          <caret line="93" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="17" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="525" column="21" selection-start="18756" selection-end="18756" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14445">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14445">
+          <caret line="525" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="82" selection-start="4991" selection-end="5061" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="11310">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19650" selection-end="19730" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3404" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="21" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="1695">
+          <caret line="104" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="885">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="885">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/distributed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="0" selection-end="28630" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12090" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/initproject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="8" selection-start="19758" selection-end="19838" vertical-scroll-proportion="0.0" vertical-offset="7395" max-vertical-offset="8445">
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12090">
+          <caret line="2" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/UniProt.py">
+    <entry file="file://$PROJECT_DIR$/attic/UniProt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/refinement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="4452" selection-end="4452" vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="11310">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/attic/modelling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="8" selection-start="5181" selection-end="5243" vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="5085">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4185">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="121" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1050">
+        <state vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1020">
+          <caret line="52" column="121" selection-start-line="52" selection-start-column="121" selection-end-line="52" selection-end-column="121" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/PDB.py">
+    <entry file="file://$PROJECT_DIR$/Ensembler2/PDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="18" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="1695">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1695">
+          <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MSMSeeder/distributed.py">
+    <entry file="file://$PROJECT_DIR$/project-data.yaml-TEMPLATE">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="877" column="79" selection-start="32706" selection-end="32706" vertical-scroll-proportion="0.74197" vertical-offset="12462" max-vertical-offset="13770">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="950">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attic/old-stuff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test-gather-targets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="819">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18891688" vertical-offset="0" max-vertical-offset="794">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/resources/4L8G_A.fasta">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="819">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="492">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/solvation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="2610">
+          <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test-search-and-model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="e#37#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="197" max-vertical-offset="915">
+          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+          <folding>
+            <element signature="e#37#47#0" expanded="true" />
+            <element signature="e#907#3019#0" expanded="false" />
+            <element signature="e#3054#4392#0" expanded="false" />
+            <element signature="e#4436#5692#0" expanded="false" />
+            <element signature="e#5723#5968#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/modelling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2550" max-vertical-offset="3180">
+          <caret line="200" column="41" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
+          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/MSMSeed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="3465">
+          <caret line="64" column="96" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+          <folding>
+            <element signature="e#7192#7440#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/refinement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2692" max-vertical-offset="3150">
+          <caret line="197" column="16" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test-pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5742358" vertical-offset="832" max-vertical-offset="1290">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+          <folding>
+            <element signature="e#36#99#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
 </project>
-

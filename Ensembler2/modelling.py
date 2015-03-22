@@ -109,7 +109,7 @@ def align_template_to_reference(msmseed, ref_msmseed):
         env = modeller.environ()
         env.io.atom_files_directory = temp_dir
         aln = modeller.alignment(env, file='aln_tmp.pir', align_codes=(ref_msmseed.template_id, msmseed.template_id))
-        mdl  = modeller.model(env, file=ref_msmseed.template_id + '.pdb')
+        mdl = modeller.model(env, file=ref_msmseed.template_id + '.pdb')
         mdl2 = modeller.model(env, file=msmseed.template_id+'.pdb')
         atmsel = modeller.selection(mdl).only_atom_types('CA')
         r = atmsel.superpose(mdl2, aln)
@@ -145,7 +145,9 @@ def target_template_alignment(msmseed):
 
 def make_model(msmseed):
     """
-    Use MODELLER from the Sali lab to create a model between the target and template specified in the input
+    Use MODELLER from the Sali lab to create a model between the target and template specified in the input.
+    If the target and template are identical, the "model" is set to the template, since MODELLER cannot
+    handle this case.
 
     Parameters
     ----------
@@ -195,7 +197,8 @@ def make_model(msmseed):
         msmseed.sequence_similarity = target_model.seq_id
         msmseed.target_model = app.PDBFile(tmp_model_pdbfilename)
         msmseed.target_restraints = open('%s.rsr' % msmseed.target_id, 'r').readlines()
-    except:
+    except Exception, e:
+        msmseed.error_message = e.message
         msmseed.error_state = -1
 
     finally:
