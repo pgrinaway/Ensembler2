@@ -21,6 +21,8 @@ class MSMSeed(object):
 
     Attributes
     ----------
+    model_id : int
+        contains a number to allow easy partitioning in a distributed context
     blast_eval : float
         contains the e-value obtained via blast search.
     rmsd_to_reference : float
@@ -63,6 +65,8 @@ class MSMSeed(object):
         gzipped xml serialized form of explicit-refined model integrator
     explicit_ns_per_day : float
         An estimate of ns/day for the explicit solvent system. May be incorrect if GPU is shared
+    clone_id : int
+        An identifier for the clone number within a given configuration
 
 
 
@@ -70,7 +74,7 @@ class MSMSeed(object):
 
     """
 
-    def __init__(self, target_sequence, template_sequence, template_structure, blast_eval=0):
+    def __init__(self, target_sequence, template_sequence, template_structure, blast_eval=0, model_id=0):
         import StringIO
         import Bio.SeqIO
 
@@ -97,7 +101,17 @@ class MSMSeed(object):
         self._error_state = 0
         self._nwaters = 0
         self._blast_eval = blast_eval
+        self._model_id = model_id
 
+    @property
+    def model_id(self):
+        return self._model_id
+    @property
+    def clone_id(self):
+        return self._clone_id
+    @clone_id.setter
+    def clone_id(self, clone):
+        self._clone_id = clone
 
     @property
     def blast_eval(self):

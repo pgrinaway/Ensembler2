@@ -63,22 +63,22 @@ def blast_pdb_local(fasta_string, num_hits=1000):
     blast_aln, error = p.communicate(input=fasta_string)
     msmseeds = []
     local_pdb_repo = os.getenv("PDB_HOME")
-    for result in blast_aln.splitlines():
+    for result, i in enumerate(blast_aln.splitlines()):
         if result[0]!="#":
             res_data = result.split("\t")
             e_value = float(res_data[2])
-            template_chain_code =  "_".join(res_data[1].split("|")[3:])
+            template_chain_code = "_".join(res_data[1].split("|")[3:])
             raw_template_pdb = _read_local_pdb_repository(local_pdb_repo, template_chain_code.split("_")[0])
             template_fasta, pdb_resnums = _retrieve_fasta(template_chain_code)
             template_pdb = StringIO.StringIO()
             raw_template_pdbio = StringIO.StringIO(raw_template_pdb)
             raw_template_pdbio.seek(0)
-            end_resnums = PDB.extract_residues_by_resnum(template_pdb,raw_template_pdbio, pdb_resnums, template_chain_code.split("_")[1])
+            end_resnums = PDB.extract_residues_by_resnum(template_pdb, raw_template_pdbio, pdb_resnums, template_chain_code.split("_")[1])
             template_pdb.seek(0)
             if template_pdb.len == 0:
                 continue
             template_pdbfile = app.PDBFile(template_pdb)
-            msmseeds.append(MSMSeed(fasta_string, template_fasta, template_pdbfile, e_value))
+            msmseeds.append(MSMSeed(fasta_string, template_fasta, template_pdbfile, e_value, model_id=i))
     return msmseeds
 
 

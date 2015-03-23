@@ -79,3 +79,6 @@ def test_pipeline():
     msmseed_expl = explicit_refine_model(msmeed_solv)
     simulate_from_completed_models(msmseed_expl)
     return 0
+
+if __name__=="__main__":
+    test_pipeline()
