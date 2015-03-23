@@ -20,4 +20,18 @@ def package_for_fah(msmseed, n_clones, retain_metadata = False):
          MSMSeed objects with serialized state, integrator, system, and pdb model
 
     """
-    raise NotImplementedError
+    import simtk.openmm as openmm
+    import gzip
+    import StringIO
+
+    #get the serialized system, state, integrator
+    serialized_system = "".join(gzip.GzipFile(fileobj=StringIO.StringIO(msmseed.explicit_refined_system)).readlines())
+    serialized_state = "".join(gzip.GzipFile(fileobj=StringIO.StringIO(msmseed.explicit_refined_state)).readlines())
+    serialized_integrator = "".join(gzip.GzipFile(fileobj=StringIO.StringIO(msmseed.explicit_refined_integrator)).readlines())
+    system = openmm.XmlSerializer.deserialize(serialized_system)
+    integrator = openmm.XmlSerializer.deserialize(serialized_integrator)
+    state = openmm.XmlSerializer.deserialize(serialized_state)
+
+    #set the temperatures
+    
+    #write out new serialized system, state, integrator
