@@ -33,5 +33,5 @@ def package_for_fah(msmseed, n_clones, retain_metadata = False):
     state = openmm.XmlSerializer.deserialize(serialized_state)
 
     #set the temperatures
-    
+
     #write out new serialized system, state, integrator
