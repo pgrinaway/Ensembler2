@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cabeda56-b608-4355-a073-2fd2a058e886" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/test-search-and-model.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scripts/GatherTargets.py" afterPath="$PROJECT_DIR$/attic/GatherTargets.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scripts/GatherTemplates.py" afterPath="$PROJECT_DIR$/attic/GatherTemplates.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scripts/InitMSMSeederProject.py" afterPath="$PROJECT_DIR$/attic/InitMSMSeederProject.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ensembler2/MSMSeed.py" afterPath="$PROJECT_DIR$/Ensembler2/MSMSeed.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ensembler2/foldingathome.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/SparkDriver.py" afterPath="$PROJECT_DIR$/scripts/SparkDriver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ensembler2/search.py" afterPath="$PROJECT_DIR$/Ensembler2/search.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test-pipeline.py" afterPath="$PROJECT_DIR$/tests/test-pipeline.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="msmseeder.iws" />
@@ -48,38 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="distributed.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/attic/distributed.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
-              <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-              <folding>
-                <element signature="e#75#7044#0" expanded="false" />
-                <element signature="e#7073#7321#0" expanded="false" />
-                <element signature="e#7387#8097#0" expanded="false" />
-                <element signature="e#8153#10223#0" expanded="false" />
-                <element signature="e#10258#11596#0" expanded="false" />
-                <element signature="e#11654#12416#0" expanded="false" />
-                <element signature="e#12459#13715#0" expanded="false" />
-                <element signature="e#13776#15735#0" expanded="false" />
-                <element signature="e#15791#16874#0" expanded="false" />
-                <element signature="e#16904#17149#0" expanded="false" />
-                <element signature="e#17451#18742#0" expanded="false" />
-                <element signature="e#18784#19047#0" expanded="false" />
-                <element signature="e#19094#19777#0" expanded="false" />
-                <element signature="e#19808#22119#0" expanded="false" />
-                <element signature="e#22221#25364#0" expanded="false" />
-                <element signature="e#25401#26528#0" expanded="false" />
-                <element signature="e#27163#31389#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="refinement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ensembler2/refinement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2692" max-vertical-offset="3150">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2358" max-vertical-offset="3150">
               <caret line="197" column="16" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
               <folding />
             </state>
@@ -99,11 +65,21 @@
       <file leaf-file-name="SparkDriver.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05487805" vertical-offset="1593" max-vertical-offset="2340">
-              <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+            <state vertical-scroll-proportion="4.390244" vertical-offset="0" max-vertical-offset="2550">
+              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
               <folding>
                 <element signature="e#35#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="foldingathome.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ensembler2/foldingathome.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,16 +117,6 @@
                 <element signature="e#4462#5718#0" expanded="false" />
                 <element signature="e#5749#5994#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="4L8G_A.fasta" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/resources/4L8G_A.fasta">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -200,6 +166,7 @@
         <option value="$PROJECT_DIR$/tests/test-pipeline.py" />
         <option value="$PROJECT_DIR$/Ensembler2/search.py" />
         <option value="$PROJECT_DIR$/Ensembler2/MSMSeed.py" />
+        <option value="$PROJECT_DIR$/Ensembler2/foldingathome.py" />
         <option value="$PROJECT_DIR$/scripts/SparkDriver.py" />
       </list>
     </option>
@@ -609,7 +576,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427064600732</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Continue writing driver class for spark, still need to add a metadata collector for errors and other models">
+      <created>1427132764684</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1427132764684</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -687,7 +660,8 @@
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Began reorganizing code and adding tests" />
     <MESSAGE value="Wrote a local test to run through the pipeline, moved some old files out of the way" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote a local test to run through the pipeline, moved some old files out of the way" />
+    <MESSAGE value="Continue writing driver class for spark, still need to add a metadata collector for errors and other models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continue writing driver class for spark, still need to add a metadata collector for errors and other models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1100,40 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
-          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-          <folding>
-            <element signature="e#75#7044#0" expanded="false" />
-            <element signature="e#7073#7321#0" expanded="false" />
-            <element signature="e#7387#8097#0" expanded="false" />
-            <element signature="e#8153#10223#0" expanded="false" />
-            <element signature="e#10258#11596#0" expanded="false" />
-            <element signature="e#11654#12416#0" expanded="false" />
-            <element signature="e#12459#13715#0" expanded="false" />
-            <element signature="e#13776#15735#0" expanded="false" />
-            <element signature="e#15791#16874#0" expanded="false" />
-            <element signature="e#16904#17149#0" expanded="false" />
-            <element signature="e#17451#18742#0" expanded="false" />
-            <element signature="e#18784#19047#0" expanded="false" />
-            <element signature="e#19094#19777#0" expanded="false" />
-            <element signature="e#19808#22119#0" expanded="false" />
-            <element signature="e#22221#25364#0" expanded="false" />
-            <element signature="e#25401#26528#0" expanded="false" />
-            <element signature="e#27163#31389#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ensembler2/refinement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2692" max-vertical-offset="3150">
-          <caret line="197" column="16" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test-pipeline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="1335">
@@ -1175,10 +1115,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/foldingathome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attic/distributed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
+          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+          <folding>
+            <element signature="e#75#7044#0" expanded="false" />
+            <element signature="e#7073#7321#0" expanded="false" />
+            <element signature="e#7387#8097#0" expanded="false" />
+            <element signature="e#8153#10223#0" expanded="false" />
+            <element signature="e#10258#11596#0" expanded="false" />
+            <element signature="e#11654#12416#0" expanded="false" />
+            <element signature="e#12459#13715#0" expanded="false" />
+            <element signature="e#13776#15735#0" expanded="false" />
+            <element signature="e#15791#16874#0" expanded="false" />
+            <element signature="e#16904#17149#0" expanded="false" />
+            <element signature="e#17451#18742#0" expanded="false" />
+            <element signature="e#18784#19047#0" expanded="false" />
+            <element signature="e#19094#19777#0" expanded="false" />
+            <element signature="e#19808#22119#0" expanded="false" />
+            <element signature="e#22221#25364#0" expanded="false" />
+            <element signature="e#25401#26528#0" expanded="false" />
+            <element signature="e#27163#31389#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ensembler2/refinement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2692" max-vertical-offset="3150">
+          <caret line="197" column="16" selection-start-line="197" selection-start-column="16" selection-end-line="197" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/SparkDriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05487805" vertical-offset="1593" max-vertical-offset="2340">
-          <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+        <state vertical-scroll-proportion="4.390244" vertical-offset="0" max-vertical-offset="2550">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
           <folding>
             <element signature="e#35#49#0" expanded="true" />
           </folding>

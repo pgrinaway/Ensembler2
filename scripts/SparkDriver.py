@@ -18,7 +18,7 @@ class SparkDriver(object):
     _failure_data = None
     _solvated_models = None
 
-    def __init__(self, target_squence, spark_master, models_directory, constrained_memory=True, executor_memory='5g', auto_initialize=True,platform = 'CUDA', n_per_slice=10):
+    def __init__(self, target_squence, spark_master, models_directory, constrained_memory=True, executor_memory='5g', auto_initialize=True, platform = 'CUDA', n_per_slice=10):
         self._target_sequence = target_squence
         spark_conf = pyspark.SparkConf()
         spark_conf.setMaster(spark_master)
@@ -29,6 +29,7 @@ class SparkDriver(object):
         self._platform = platform
         self._n_per_slice = n_per_slice
         self._constrained_memory = constrained_memory
+        self._error_data = list()
         if auto_initialize:
             self.initialize_with_blast()
 
@@ -52,7 +53,7 @@ class SparkDriver(object):
         """
 
         self._modeled_seeds = self._rdd_starting_templates.map(modelling.align_template_target).map(modelling.make_model)
-        self._failed_seeds = self._modeled_seeds.filter(lambda seed: seed.error_code < 0) #TODO: do something to collect failures
+        self._error_data.extend(self._modeled_seeds.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect()) #TODO: do something to collect failures
         self._modeled_seeds = self._modeled_seeds.filter(lambda seed: seed.error_code == 0)
 
     def refine_implicit(self):
@@ -61,7 +62,7 @@ class SparkDriver(object):
         :return:
         """
         self._implicit_refined_seeds = self._modeled_seeds.map(lambda seed: refinement.refine_implicitMD(seed, self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
-        self._failed_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_code < 0)
+        self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
         self._implicit_refined_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def solvate_models(self):
@@ -72,7 +73,7 @@ class SparkDriver(object):
         nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).collect()
         nwaters_target = solvation.calculate_nwaters(nwaters_array)
         self._solvated_models = self._implicit_refined_seeds.map(lambda seed: solvation.solvate_models_to_target(seed, nwaters_target))
-        self._failed_seeds = self._solvated_models.filter(lambda seed: seed.error_code < 0)
+        self._error_data.extend(self._solvated_models.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
         self._solvated_models = self._solvated_models.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def explicit_refine_models(self):
@@ -81,7 +82,7 @@ class SparkDriver(object):
         :return:
         """
         self._explicit_refined_models = self._solvated_models.map(lambda seed: refinement.refine_explicitMD(seed, openmm_platform=self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
-        self._failed_seeds = self._explicit_refined_models.filter(lambda seed: seed.error_code < 0)
+        self._error_data.extend(self._explicit_refined_models.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
         self._explicit_refined_models = self._explicit_refined_models.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def retrieve_models(self):
@@ -129,7 +130,20 @@ class SparkDriver(object):
                 print(str(e))
                 continue
 
-    def write_model_metadata(self, model):
+    def write_error_data(self, filename):
+        try:
+            error_file = open(filename, 'w')
+            for error in self._error_data:
+                error_file.write(str(error))
+            error_file.close()
+        except Exception, e:
+            print(str(e))
+
+    @staticmethod
+    def get_error_metadata(model):
+        return [model.template_id, model.error_code, model.error_message]
+
+
 
 
 
