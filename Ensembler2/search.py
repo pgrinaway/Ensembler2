@@ -63,7 +63,7 @@ def blast_pdb_local(fasta_string, num_hits=1000):
     blast_aln, error = p.communicate(input=fasta_string)
     msmseeds = []
     local_pdb_repo = os.getenv("PDB_HOME")
-    for result, i in enumerate(blast_aln.splitlines()):
+    for i, result in enumerate(blast_aln.splitlines()):
         if result[0]!="#":
             res_data = result.split("\t")
             e_value = float(res_data[2])
