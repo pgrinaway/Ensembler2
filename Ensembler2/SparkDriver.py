@@ -61,7 +61,8 @@ class SparkDriver(object):
         Perform implicit-solvent refinement of the models
         :return:
         """
-        self._implicit_refined_seeds = self._modeled_seeds.map(lambda seed: refinement.refine_implicitMD(seed, self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        refine = lambda seed: refinement.refine_implicitMD(seed, self._platform, niterations=500, nsteps_per_iteration=100)
+        self._implicit_refined_seeds = self._modeled_seeds.map(refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
         self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
         self._implicit_refined_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
