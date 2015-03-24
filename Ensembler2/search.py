@@ -28,6 +28,8 @@ def _read_local_pdb_repository(local_repo, pdb_code_input):
     pdb_filename = 'pdb%s.ent.gz' % pdb_code
     pdb_path = '%s/%s' %(pdb_code[1:3], pdb_filename)
     filepath = os.path.join(local_repo, pdb_path)
+    if not os.path.exists(filepath):
+        return ""
     return "".join(gzip.GzipFile(filename=filepath).readlines())
 
 def blast_pdb_local(fasta_string, num_hits=1000):
@@ -69,6 +71,8 @@ def blast_pdb_local(fasta_string, num_hits=1000):
             e_value = float(res_data[2])
             template_chain_code = "_".join(res_data[1].split("|")[3:])
             raw_template_pdb = _read_local_pdb_repository(local_pdb_repo, template_chain_code.split("_")[0])
+            if raw_template_pdb == "":
+                continue
             template_fasta, pdb_resnums = _retrieve_fasta(template_chain_code)
             template_pdb = StringIO.StringIO()
             raw_template_pdbio = StringIO.StringIO(raw_template_pdb)
