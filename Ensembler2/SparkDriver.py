@@ -53,8 +53,8 @@ class SparkDriver(object):
         """
 
         self._modeled_seeds = self._rdd_starting_templates.map(modelling.target_template_alignment).map(modelling.make_model)
-        self._error_data.extend(self._modeled_seeds.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect()) #TODO: do something to collect failures
-        self._modeled_seeds = self._modeled_seeds.filter(lambda seed: seed.error_code == 0)
+        self._error_data.extend(self._modeled_seeds.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect()) #TODO: do something to collect failures
+        self._modeled_seeds = self._modeled_seeds.filter(lambda seed: seed.error_state == 0)
 
     def refine_implicit(self):
         """
@@ -62,8 +62,8 @@ class SparkDriver(object):
         :return:
         """
         self._implicit_refined_seeds = self._modeled_seeds.map(lambda seed: refinement.refine_implicitMD(seed, self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
-        self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
-        self._implicit_refined_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
+        self._implicit_refined_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def solvate_models(self):
         """
@@ -73,8 +73,8 @@ class SparkDriver(object):
         nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).collect()
         nwaters_target = solvation.calculate_nwaters(nwaters_array)
         self._solvated_models = self._implicit_refined_seeds.map(lambda seed: solvation.solvate_models_to_target(seed, nwaters_target))
-        self._error_data.extend(self._solvated_models.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
-        self._solvated_models = self._solvated_models.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        self._error_data.extend(self._solvated_models.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
+        self._solvated_models = self._solvated_models.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def explicit_refine_models(self):
         """
@@ -82,8 +82,8 @@ class SparkDriver(object):
         :return:
         """
         self._explicit_refined_models = self._solvated_models.map(lambda seed: refinement.refine_explicitMD(seed, openmm_platform=self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
-        self._error_data.extend(self._explicit_refined_models.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect())
-        self._explicit_refined_models = self._explicit_refined_models.filter(lambda seed: seed.error_code == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        self._error_data.extend(self._explicit_refined_models.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
+        self._explicit_refined_models = self._explicit_refined_models.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
     def retrieve_models(self):
         """
@@ -141,7 +141,7 @@ class SparkDriver(object):
 
     @staticmethod
     def get_error_metadata(model):
-        return [model.template_id, model.error_code, model.error_message]
+        return [model.template_id, model.error_state, model.error_message]
 
 
 
