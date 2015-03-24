@@ -112,7 +112,7 @@ class SparkDriver(object):
         n_per_slice = self._n_per_slice
         for i in range(n_full_slices):
             self.write_models(self._explicit_refined_models.filter(lambda seed: i*n_per_slice <= seed.model_id < (i+1)*n_per_slice).collect())
-        self.write_models(self._explicit_refined_models.filter(lambda seed: seed.model_id > n_full_slices*n_per_slice))
+        self.write_models(self._explicit_refined_models.filter(lambda seed: seed.model_id > n_full_slices*n_per_slice).collect())
 
 
 
