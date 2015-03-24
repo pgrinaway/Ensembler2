@@ -144,9 +144,14 @@ def _retrieve_fasta(pdb_code_input):
     from lxml import etree
     import StringIO
     pdb_code, chain_code = pdb_code_input.split("_")
+    max_attempts = 10
+    i=nattempts = 0
     sifts = ""
     while sifts == "":
         sifts = retrieve_sifts(pdb_code)
+        nattempts += 1
+        if nattempts ==max_attempts:
+            break
     parser = etree.XMLParser(huge_tree=True)
     siftsXML = etree.parse(StringIO.StringIO(sifts), parser).getroot()
     observed_residues = siftsXML.xpath('entity/segment/listResidue/residue/crossRefDb[@dbSource="PDB"][@dbChainId="%s"][not(../residueDetail[contains(text(),"Not_Observed")])][../crossRefDb[@dbSource="UniProt"]][not(../residueDetail[contains(text(),"modified")])][not(../residueDetail[contains(text(),"Conflict")])][not(../residueDetail[contains(text(),"mutation")])]' % chain_code)
