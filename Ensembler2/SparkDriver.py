@@ -61,9 +61,10 @@ class SparkDriver(object):
         Perform implicit-solvent refinement of the models
         :return:
         """
-        def refine(x):
-            refinement.refine_implicitMD(x, 'CUDA', niterations=500, nsteps_per_iteration=100)
-        self._implicit_refined_seeds = self._modeled_seeds.map(refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        def implicit_refine(x):
+            result = refinement.refine_implicitMD(x, 'CUDA', niterations=500, nsteps_per_iteration=100)
+            return result
+        self._implicit_refined_seeds = self._modeled_seeds.map(implicit_refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
         self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
         self._implicit_refined_seeds = self._implicit_refined_seeds.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
@@ -74,7 +75,10 @@ class SparkDriver(object):
         """
         nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).collect()
         nwaters_target = solvation.calculate_nwaters(nwaters_array)
-        self._solvated_models = self._implicit_refined_seeds.map(lambda seed: solvation.solvate_models_to_target(seed, nwaters_target))
+        def solvate_target(x, nwaters_target):
+            result = solvation.solvate_models_to_target(x, nwaters_target)
+            return result
+        self._solvated_models = self._implicit_refined_seeds.map(solvate_target)
         self._error_data.extend(self._solvated_models.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
         self._solvated_models = self._solvated_models.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 
@@ -83,7 +87,10 @@ class SparkDriver(object):
         Perform explicit refinement of models
         :return:
         """
-        self._explicit_refined_models = self._solvated_models.map(lambda seed: refinement.refine_explicitMD(seed, openmm_platform=self._platform, niterations=500, nsteps_per_iteration=100)).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
+        def explicit_refine(x):
+            result = refinement.refine_explicitMD(x, openmm_platform=self._platform, niterations=500, nsteps_per_iteration=100)
+            return result
+        self._explicit_refined_models = self._solvated_models.map(explicit_refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
         self._error_data.extend(self._explicit_refined_models.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
         self._explicit_refined_models = self._explicit_refined_models.filter(lambda seed: seed.error_state == 0).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
 

@@ -48,12 +48,18 @@ def refine_implicitMD(msmseed, openmm_platform='CPU', niterations=100, nsteps_pe
         platform.setPropertyDefaultValue('CudaDeviceIndex', gpuid)
     if openmm_platform == 'OpenCL':
         platform.setPropertyDefaultValue('OpenCLDeviceIndex', gpuid)
-    modeller = app.Modeller(msmseed.target_model.topology, msmseed.target_model.positions)
-    modeller.addHydrogens(forcefield, pH=pH, variants=None)
-    topology = modeller.getTopology()
-    positions = modeller.getPositions()
+    try:
+        modeller = app.Modeller(msmseed.target_model.topology, msmseed.target_model.positions)
+        modeller.addHydrogens(forcefield, pH=pH, variants=None)
+        topology = modeller.getTopology()
+        positions = modeller.getPositions()
 
-    system = forcefield.createSystem(topology, nonbondedMethod=app.NoCutoff, constraints=app.HBonds)
+        system = forcefield.createSystem(topology, nonbondedMethod=app.NoCutoff, constraints=app.HBonds)
+    except Exception, e:
+        msmseed.error_state = -2
+        msmseed.error_message = str(e)
+        return msmseed
+
     integrator = openmm.LangevinIntegrator(temperature, collision_rate, timestep)
     context = openmm.Context(system, integrator, platform)
     context.setPositions(positions)
@@ -135,6 +141,7 @@ def refine_explicitMD(msmseed, openmm_platform='CPU', niterations=1, nsteps_per_
     kB = unit.MOLAR_GAS_CONSTANT_R
     kT = kB * temperature
 
+
     forcefield = app.ForceField(*forcefields_to_use)
     solvated_model = msmseed.solvated_model
     system = forcefield.createSystem(solvated_model.topology, nonbondedMethod=nonbondedMethod, constraints=app.HBonds)
@@ -144,6 +151,8 @@ def refine_explicitMD(msmseed, openmm_platform='CPU', niterations=1, nsteps_per_
     context = openmm.Context(system, integrator, platform)
     context.setPositions(solvated_model.positions)
     openmm.LocalEnergyMinimizer.minimize(context, minimization_tolerance, minimization_steps)
+
+
     context.setVelocitiesToTemperature(temperature)
     initial_time = time.time()
     ns_per_day = 0.0
