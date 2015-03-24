@@ -24,7 +24,7 @@ class SparkDriver(object):
         spark_conf.setMaster(spark_master)
         spark_conf.set("spark.executor.memory", executor_memory)
         self._spark_context = pyspark.SparkContext(conf=spark_conf)
-        self._models_directory = models_directory
+        self._models_directory = os.path.abspath(models_directory)
         self._model_rdds = dict()
         self._platform = platform
         self._n_per_slice = n_per_slice
@@ -124,7 +124,7 @@ class SparkDriver(object):
         """
         os.chdir(self._models_directory)
         for model_seed in models_to_write:
-            model_path = os.path.join(self._models_directory, model_seed.template_id)
+            model_path = os.path.abspath(os.path.join(self._models_directory, model_seed.template_id))
             if not os.path.exists(model_path):
                 os.mkdir(model_path)
             try:
