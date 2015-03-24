@@ -56,9 +56,9 @@ def blast_pdb_local(fasta_string, num_hits=1000):
     import simtk.openmm.app as app
     blast_data = os.getenv("DATA_HOME")
     blast_query = 'blastp -db %s/pdbaa -max_target_seqs %d -outfmt' % (blast_data, num_hits)
-    #out_fmt = '7 qseqid sseqid evalue bitscore'
+    out_fmt = '7'
     blast_cmd = shlex.split(blast_query)
-    #blast_cmd.append(out_fmt)
+    blast_cmd.append(out_fmt)
     p = subprocess.Popen(blast_cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     blast_aln, error = p.communicate(input=fasta_string)
     msmseeds = []
