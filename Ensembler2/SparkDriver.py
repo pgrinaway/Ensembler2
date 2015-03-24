@@ -75,7 +75,7 @@ class SparkDriver(object):
         """
         nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).collect()
         nwaters_target = solvation.calculate_nwaters(nwaters_array)
-        def solvate_target(x, nwaters_target):
+        def solvate_target(x):
             result = solvation.solvate_models_to_target(x, nwaters_target)
             return result
         self._solvated_models = self._implicit_refined_seeds.map(solvate_target)
