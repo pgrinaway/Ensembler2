@@ -52,7 +52,7 @@ class SparkDriver(object):
         Run modeller on identified homologues, collecting failure data
         """
 
-        self._modeled_seeds = self._rdd_starting_templates.map(modelling.align_template_target).map(modelling.make_model)
+        self._modeled_seeds = self._rdd_starting_templates.map(modelling.target_template_alignment).map(modelling.make_model)
         self._error_data.extend(self._modeled_seeds.filter(lambda seed: seed.error_code < 0).map(self.get_error_metadata).collect()) #TODO: do something to collect failures
         self._modeled_seeds = self._modeled_seeds.filter(lambda seed: seed.error_code == 0)
 
