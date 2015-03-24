@@ -99,9 +99,11 @@ def retrieve_sifts(pdb_id):
     import re, gzip, StringIO, urllib2
     sifts_download_base_url='ftp://ftp.ebi.ac.uk/pub/databases/msd/sifts/xml/'
     url = sifts_download_base_url + pdb_id.lower() + '.xml.gz'
-    response = urllib2.urlopen(url)
-
-    sifts_page = response.read(100000000) # Max 100MB
+    try:
+        response = urllib2.urlopen(url)
+        sifts_page = response.read(100000000) # Max 100MB
+    except:
+        return ""
     # Decompress string
     sifts_page = gzip.GzipFile(fileobj=StringIO.StringIO(sifts_page)).read()
 
@@ -142,7 +144,9 @@ def _retrieve_fasta(pdb_code_input):
     from lxml import etree
     import StringIO
     pdb_code, chain_code = pdb_code_input.split("_")
-    sifts = retrieve_sifts(pdb_code)
+    sifts = ""
+    while sifts == "":
+        sifts = retrieve_sifts(pdb_code)
     parser = etree.XMLParser(huge_tree=True)
     siftsXML = etree.parse(StringIO.StringIO(sifts), parser).getroot()
     observed_residues = siftsXML.xpath('entity/segment/listResidue/residue/crossRefDb[@dbSource="PDB"][@dbChainId="%s"][not(../residueDetail[contains(text(),"Not_Observed")])][../crossRefDb[@dbSource="UniProt"]][not(../residueDetail[contains(text(),"modified")])][not(../residueDetail[contains(text(),"Conflict")])][not(../residueDetail[contains(text(),"mutation")])]' % chain_code)
