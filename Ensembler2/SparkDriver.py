@@ -136,13 +136,15 @@ class SparkDriver(object):
                 system_file.writelines(model_seed.explicit_refined_system)
                 integrator_file.writelines(model_seed.explicit_refined_integrator)
                 state_file.writelines(model_seed.explicit_refined_state)
-                app.PDBFile.writeHeader(model_seed.explicit_refined_pdb.topology, file=pdb_file)
-                app.PDBFile.writeModel(model_seed.explicit_refined_pdb.topology,model_seed.explicit_refined_pdb.positions, file=pdb_file)
-                app.PDBFile.writeFooter(model_seed.explicit_refined_pdb.topology, file=pdb_file)
+                pdb_file.writelines(model_seed.explicit_refined_pdb)
             except Exception, e:
                 print(str(e))
                 continue
             finally:
+                pdb_file.close()
+                system_file.close()
+                integrator_file.close()
+                state_file.close()
                 os.chdir(self._models_directory)
 
     def write_error_data(self, filename):
