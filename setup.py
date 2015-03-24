@@ -12,6 +12,5 @@ setup(
     description = 'Generation of diverse protein structural ensembles, for the initialization of molecular dynamics simulations and subsequent construction of Markov state models. ',
     long_description = read('README.md'),
     packages = ['Ensembler2', 'tests'],
-    scripts = ['scripts/SparkDriver.py'],
     data_files = [('', ['LICENSE']), ('templates', ['project-data.yaml-TEMPLATE', 'manual-specifications.yaml-TEMPLATE'])],
 )

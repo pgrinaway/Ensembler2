@@ -21,6 +21,7 @@ def package_for_fah(msmseed, n_clones, retain_metadata = False):
 
     """
     import simtk.openmm as openmm
+    import simtk.unit as unit
     import gzip
     import StringIO
 
@@ -29,9 +30,24 @@ def package_for_fah(msmseed, n_clones, retain_metadata = False):
     serialized_state = "".join(gzip.GzipFile(fileobj=StringIO.StringIO(msmseed.explicit_refined_state)).readlines())
     serialized_integrator = "".join(gzip.GzipFile(fileobj=StringIO.StringIO(msmseed.explicit_refined_integrator)).readlines())
     system = openmm.XmlSerializer.deserialize(serialized_system)
-    integrator = openmm.XmlSerializer.deserialize(serialized_integrator)
+    #integrator = openmm.XmlSerializer.deserialize(serialized_integrator)
     state = openmm.XmlSerializer.deserialize(serialized_state)
 
-    #set the temperatures
+    #integrator parameters
+    timestep = 2.0 * unit.femtoseconds # timestep
+    temperature = 300.0 * unit.kelvin # simulation temperature
+    pressure = 1.0 * unit.atmospheres # simulation pressure
+    collision_rate = 20.0 / unit.picoseconds # Langevin collision rate
+    barostat_period = 50
+
+    #set the temperatures + make new MSMSeed objects
+    clone_list = list()
+    for i in range(n_clones):
+        integrator = openmm.LangevinIntegrator(temperature, collision_rate, timestep)
+        context = openmm.Context(system, integrator)
+        context.setState(state)
+        context.setVelocitiesToTemperature(temperature)
+        new_state = context.getState(getPositions=True, getVelocities=True, getForces=True, getEnergy=True, getParameters=True, enforcePeriodicBox=True)
+
 
     #write out new serialized system, state, integrator
