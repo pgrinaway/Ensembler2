@@ -62,7 +62,7 @@ class SparkDriver(object):
         :return:
         """
         def implicit_refine(x):
-            result = refinement.refine_implicitMD(x, 'CUDA', niterations=500, nsteps_per_iteration=100)
+            result = refinement.refine_implicitMD(x, openmm_platform='CUDA', niterations=500, nsteps_per_iteration=100)
             return result
         self._implicit_refined_seeds = self._modeled_seeds.map(implicit_refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
         self._error_data.extend(self._implicit_refined_seeds.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
@@ -91,7 +91,7 @@ class SparkDriver(object):
         :return:
         """
         def explicit_refine(x):
-            result = refinement.refine_explicitMD(x, openmm_platform=self._platform, niterations=500, nsteps_per_iteration=100)
+            result = refinement.refine_explicitMD(x, openmm_platform='CUDA', niterations=500, nsteps_per_iteration=100)
             return result
         self._explicit_refined_models = self._solvated_models.map(explicit_refine).persist(pyspark.StorageLevel.MEMORY_AND_DISK)
         self._error_data.extend(self._explicit_refined_models.filter(lambda seed: seed.error_state < 0).map(self.get_error_metadata).collect())
