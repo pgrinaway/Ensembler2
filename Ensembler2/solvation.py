@@ -126,7 +126,6 @@ def solvate_models_to_target(msmseed, target_nwaters):
     while not over_target:
         delta_volume = (target_nwaters + extra_nwaters - nwaters_min) / density
         scale = ((volume_min + delta_volume) / volume_min)**(1.0/3.0)
-        delta_volume = (target_nwaters + extra_nwaters - nwaters_min) / density
         modeller = app.Modeller(refined_model.topology, refined_model.positions)
         topology = modeller.getTopology()
         topology.setUnitCellDimensions(box_min * scale)

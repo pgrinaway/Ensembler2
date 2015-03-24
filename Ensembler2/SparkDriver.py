@@ -73,8 +73,11 @@ class SparkDriver(object):
         Determine the number of waters needed to minimally solvate the model
         :return:
         """
-        nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).collect()
+        def get_nwaters(x):
+            return x.nwaters
+        nwaters_array = self._implicit_refined_seeds.map(solvation.solvate_models).map(get_nwaters).collect()
         nwaters_target = solvation.calculate_nwaters(nwaters_array)
+
         def solvate_target(x):
             result = solvation.solvate_models_to_target(x, nwaters_target)
             return result
