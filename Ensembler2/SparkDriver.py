@@ -124,8 +124,9 @@ class SparkDriver(object):
         models_directory = self._models_directory
         def parallel_map(x):
             self.map_write_model(x, models_directory)
+            return 0
 
-        self._explicit_refined_models.map(parallel_map)
+        collected = self._explicit_refined_models.map(parallel_map).collect()
 
 
     def write_models(self, models_to_write):
