@@ -115,6 +115,15 @@ class SparkDriver(object):
         self.write_models(self._explicit_refined_models.filter(lambda seed: seed.model_id > n_full_slices*n_per_slice).collect())
 
 
+    def parellel_write_models(self):
+        """
+        Call to avoid out of memory errors on driver
+        This will cause each worker to write its respective models
+        :return:
+        """
+        models_directory = self._models_directory
+        self._explicit_refined_models.map(lambda seed: self.map_write_models(seed, models_directory))
+
 
     def write_models(self, models_to_write):
         """
@@ -125,6 +134,37 @@ class SparkDriver(object):
         os.chdir(self._models_directory)
         for model_seed in models_to_write:
             model_path = os.path.abspath(os.path.join(self._models_directory, model_seed.template_id))
+            if not os.path.exists(model_path):
+                os.mkdir(model_path)
+            try:
+                os.chdir(model_path)
+                system_file = open('system.xml.gz', mode='w')
+                integrator_file = open('integrator.xml.gz', mode='w')
+                state_file = open('state.xml.gz', mode='w')
+                pdb_file = open('model.pdb', mode='w')
+                system_file.writelines(model_seed.explicit_refined_system)
+                integrator_file.writelines(model_seed.explicit_refined_integrator)
+                state_file.writelines(model_seed.explicit_refined_state)
+                pdb_file.writelines(model_seed.explicit_refined_pdb)
+            except Exception, e:
+                print(str(e))
+                continue
+            finally:
+                pdb_file.close()
+                system_file.close()
+                integrator_file.close()
+                state_file.close()
+                os.chdir(self._models_directory)
+
+        @staticmethod
+        def map_write_model(model_seed, model_directory):
+            """
+            Write out the resulting models as system, state, integrator
+            :param models_to_write:
+            :return:
+            """
+            os.chdir(model_directory)
+            model_path = os.path.abspath(os.path.join(model_directory, model_seed.template_id))
             if not os.path.exists(model_path):
                 os.mkdir(model_path)
             try:
