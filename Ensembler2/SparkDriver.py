@@ -179,7 +179,6 @@ class SparkDriver(object):
                 pdb_file.writelines(model_seed.explicit_refined_pdb)
             except Exception, e:
                 print(str(e))
-                continue
             finally:
                 pdb_file.close()
                 system_file.close()
