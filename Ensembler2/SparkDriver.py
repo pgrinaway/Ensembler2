@@ -115,7 +115,7 @@ class SparkDriver(object):
         self.write_models(self._explicit_refined_models.filter(lambda seed: seed.model_id > n_full_slices*n_per_slice).collect())
 
 
-    def parellel_write_models(self):
+    def parallel_write_models(self):
         """
         Call to avoid out of memory errors on driver
         This will cause each worker to write its respective models
