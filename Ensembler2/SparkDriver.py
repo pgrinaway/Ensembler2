@@ -123,7 +123,7 @@ class SparkDriver(object):
         """
         models_directory = self._models_directory
         def parallel_map(x):
-            self.map_write_model(x, models_directory)
+            SparkDriver.map_write_model(x, models_directory)
             return 0
 
         collected = self._explicit_refined_models.map(parallel_map).collect()
@@ -188,7 +188,7 @@ class SparkDriver(object):
             system_file.close()
             integrator_file.close()
             state_file.close()
-            os.chdir(self._models_directory)
+            os.chdir(model_directory)
 
     def write_error_data(self, filename):
         try:
