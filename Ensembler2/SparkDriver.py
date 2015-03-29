@@ -23,7 +23,7 @@ class SparkDriver(object):
         spark_conf = pyspark.SparkConf()
         spark_conf.setMaster(spark_master)
         spark_conf.set("spark.executor.memory", executor_memory)
-        self._template_model_directory = template_model_directory
+        self._template_model_directory = os.path.abspath(template_model_directory)
         self._spark_context = pyspark.SparkContext(conf=spark_conf)
         self._models_directory = os.path.abspath(models_directory)
         self._model_rdds = dict()
