@@ -161,29 +161,40 @@ class SparkDriver(object):
                 os.chdir(self._models_directory)
 
 
-    def write_model_metadata(self):
+    def write_model_metadata(self, completed=False):
         """
         Writes out the sequence ID, blast e value, rmsd to reference (if it was computed), and template id
+
+        Parameters
+        ----------
+        completed : Boolean, default False
+             Whether to extract the data from a completed set of models or not
         :return:
         """
         def get_metadata(msmseed):
-            result = self.get_model_metadata(msmseed)
+            result = SparkDriver.get_model_metadata(msmseed)
             return result
+        if completed:
+            metadata = self._explicit_refined_models.map(get_metadata).collect()
+        else:
+            metadata = self._modeled_seeds.map(get_metadata).collect()
+        header = "TemplateID,blast_eval,seqid,rmsd_to_reference,template_sequence\n"
+        metadata_string = "".join(metadata)
 
-        metadata = self._explicit_refined_models.map(get_metadata).collect()
-        return metadata
+        return header+metadata_string
 
     @staticmethod
     def get_model_metadata(msmseed):
         seqid = str(msmseed.sequence_similarity)
         blast_eval = str(msmseed.blast_eval)
         template_id = msmseed.template_id
+        template_sequence = msmseed.template_sequence
         if msmseed.rmsd_to_reference:
             rmsd_to_reference = msmseed.rmsd_to_reference
         else:
             rmsd_to_reference = "Not Computed"
 
-        return "%s,%s,%s,%s" % (template_id, blast_eval, seqid, rmsd_to_reference)
+        return "%s,%s,%s,%s,%s" % (template_id, blast_eval, seqid, rmsd_to_reference, template_sequence)
 
 
     @staticmethod
