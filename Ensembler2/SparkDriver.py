@@ -162,7 +162,7 @@ class SparkDriver(object):
                 os.chdir(self._models_directory)
 
 
-    def write_model_metadata(self, completed=False):
+    def write_model_metadata(self, filename, completed=False):
         """
         Writes out the sequence ID, blast e value, rmsd to reference (if it was computed), and template id
 
@@ -181,8 +181,10 @@ class SparkDriver(object):
             metadata = self._modeled_seeds.map(get_metadata).collect()
         header = "TemplateID,blast_eval,seqid,rmsd_to_reference,template_sequence\n"
         metadata_string = "".join(metadata)
+        outfile = open(filename, 'w')
+        outfile.writelines(metadata_string)
+        outfile.close()
 
-        return header+metadata_string
 
     def write_template_models(self):
         """
@@ -191,6 +193,7 @@ class SparkDriver(object):
         """
         template_model_directory = self._template_model_directory
         self._modeled_seeds.map(lambda x: SparkDriver.write_template_model(x, template_model_directory))
+        return 0
 
     @staticmethod
     def get_model_metadata(msmseed):
