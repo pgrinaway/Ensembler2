@@ -197,17 +197,17 @@ class SparkDriver(object):
 
     @staticmethod
     def get_model_metadata(msmseed):
-        if msmseed.sequence_similarity:
-            seqid = str(msmseed.sequence_similarity)
-        else:
-            seqid = "Not Computed"
+        try:
+            seqid = msmseed.sequence_similarity
+        except:
+            seqid = "NotComputed"
         blast_eval = str(msmseed.blast_eval)
         template_id = msmseed.template_id
         template_sequence = msmseed.template_sequence
-        if msmseed.rmsd_to_reference:
+        try:
             rmsd_to_reference = msmseed.rmsd_to_reference
-        else:
-            rmsd_to_reference = "Not Computed"
+        except:
+            rmsd_to_reference = "NotComputed"
 
         return "%s,%s,%s,%s,%s" % (template_id, blast_eval, seqid, rmsd_to_reference, template_sequence)
 
