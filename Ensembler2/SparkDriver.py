@@ -18,11 +18,12 @@ class SparkDriver(object):
     _failure_data = None
     _solvated_models = None
 
-    def __init__(self, target_squence, spark_master, models_directory, constrained_memory=True, executor_memory='5g', auto_initialize=True, platform = 'CUDA', n_per_slice=10):
+    def __init__(self, target_squence, spark_master, models_directory, template_model_directory, constrained_memory=True, executor_memory='5g', auto_initialize=True, platform = 'CUDA', n_per_slice=10):
         self._target_sequence = target_squence
         spark_conf = pyspark.SparkConf()
         spark_conf.setMaster(spark_master)
         spark_conf.set("spark.executor.memory", executor_memory)
+        self._template_model_directory = template_model_directory
         self._spark_context = pyspark.SparkContext(conf=spark_conf)
         self._models_directory = os.path.abspath(models_directory)
         self._model_rdds = dict()
@@ -183,6 +184,14 @@ class SparkDriver(object):
 
         return header+metadata_string
 
+    def write_template_models(self):
+        """
+        maps the function to write out template models for later analysis
+        :return:
+        """
+        template_model_directory = self._template_model_directory
+        self._modeled_seeds.map(lambda x: SparkDriver.write_template_model(x, template_model_directory))
+
     @staticmethod
     def get_model_metadata(msmseed):
         seqid = str(msmseed.sequence_similarity)
@@ -226,6 +235,36 @@ class SparkDriver(object):
             integrator_file.close()
             state_file.close()
             os.chdir(model_directory)
+
+    @staticmethod
+    def write_template_model(msmseed, template_model_folder):
+        """
+        This is a utility function for writing out the template models for later examination/reproduction
+
+        Parameters
+        ----------
+        msmseed : MSMSeed object
+            Contains the template model
+        template_model_folder : string
+            Location of the folder for template models
+        """
+        import os
+        import simtk.openmm.app as app
+        os.chdir(template_model_folder)
+        template_id = msmseed.template_id
+        template_pdb = msmseed.template_structure
+        try:
+            outfile = open(template_id+'.pdb','w')
+            app.PDBFile.writeHeader(template_pdb.topology, file=outfile)
+            app.PDBFile.writeModel(template_pdb.topology, template_pdb.positions, file=outfile)
+            app.PDBFile.writeFooter(template_pdb.topology, file=outfile)
+            outfile.close()
+            return msmseed
+        except Exception, e:
+            msmseed.error_message = str(e)
+            msmseed.error_state = -1
+            return msmseed
+
 
     def write_error_data(self, filename):
         try:
