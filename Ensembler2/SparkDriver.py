@@ -180,7 +180,7 @@ class SparkDriver(object):
         else:
             metadata = self._modeled_seeds.map(get_metadata).collect()
         header = "TemplateID,blast_eval,seqid,rmsd_to_reference,template_sequence\n"
-        metadata_string = "".join(metadata)
+        metadata_string = header+"".join(metadata)
         outfile = open(filename, 'w')
         outfile.writelines(metadata_string)
         outfile.close()
@@ -192,6 +192,8 @@ class SparkDriver(object):
         :return:
         """
         template_model_directory = self._template_model_directory
+        print('writing template models')
+        print(template_model_directory)
         self._modeled_seeds.map(lambda x: SparkDriver.write_template_model(x, template_model_directory))
         return 0
 
@@ -233,13 +235,13 @@ class SparkDriver(object):
             integrator_file.writelines(model_seed.explicit_refined_integrator)
             state_file.writelines(model_seed.explicit_refined_state)
             pdb_file.writelines(model_seed.explicit_refined_pdb)
-        except Exception, e:
-            print(str(e))
-        finally:
             pdb_file.close()
             system_file.close()
             integrator_file.close()
             state_file.close()
+        except Exception, e:
+            print(str(e))
+        finally:
             os.chdir(model_directory)
 
     @staticmethod
