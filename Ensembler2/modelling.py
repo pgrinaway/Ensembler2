@@ -120,28 +120,6 @@ def align_template_to_reference(msmseed, ref_msmseed):
         shutil.rmtree(temp_dir)
     return msmseed
 
-def target_template_alignment(msmseed):
-    """
-    Use Biopython pairwise2 to generate a sequence alignment in PIR format so that MODELLER can be used.
-    Puts alignment in MSMSeed. The functionality for this was separated into another internal function,
-    _PIR_alignment().
-
-    Parameters
-    ----------
-
-    msmseed : MSMSeed
-        object containing the sequences to be aligned
-
-    Returns
-    -------
-        msmseed : MSMSeed
-            Object containing the alignment between the input sequences accessible from the alignment property
-
-
-    """
-    aln = _PIR_alignment(msmseed.target_sequence, msmseed.target_id, msmseed.template_sequence, msmseed.template_id)
-    msmseed.alignment = str(aln)
-    return msmseed
 
 def make_model(msmseed):
     """
@@ -204,3 +182,11 @@ def make_model(msmseed):
     finally:
         shutil.rmtree(temp_dir)
     return msmseed
+
+def run_pdbfixer(msmseed):
+    """
+    This function is used for including models with 100% sequence identity,
+    as these will cause modeller to fail, but are not prepared for
+    :param msmseed:
+    :return:
+    """

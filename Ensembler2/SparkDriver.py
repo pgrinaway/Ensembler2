@@ -160,6 +160,32 @@ class SparkDriver(object):
                 state_file.close()
                 os.chdir(self._models_directory)
 
+
+    def write_model_metadata(self):
+        """
+        Writes out the sequence ID, blast e value, rmsd to reference (if it was computed), and template id
+        :return:
+        """
+        def get_metadata(msmseed):
+            result = self.get_model_metadata(msmseed)
+            return result
+
+        metadata = self._explicit_refined_models.map(get_metadata).collect()
+        return metadata
+
+    @staticmethod
+    def get_model_metadata(msmseed):
+        seqid = str(msmseed.sequence_similarity)
+        blast_eval = str(msmseed.blast_eval)
+        template_id = msmseed.template_id
+        if msmseed.rmsd_to_reference:
+            rmsd_to_reference = msmseed.rmsd_to_reference
+        else:
+            rmsd_to_reference = "Not Computed"
+
+        return "%s,%s,%s,%s" % (template_id, blast_eval, seqid, rmsd_to_reference)
+
+
     @staticmethod
     def map_write_model(model_seed, model_directory):
         """
