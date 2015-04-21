@@ -177,7 +177,7 @@ def refine_explicitMD(msmseed, openmm_platform='CPU', niterations=1, nsteps_per_
             volume_in_nm3 = (box_vectors[0][0] * box_vectors[1][1] * box_vectors[2][2]) / (unit.nanometers**3) # TODO: Use full determinant
             remaining_time = elapsed_time * (niterations-iteration-1) / (iteration+1)
     msmseed.explicit_ns_per_day = ns_per_day
-    state = context.getState(getPositions=True)
+    state = context.getState(getPositions=True, getEnergy=True, getVelocities=True)
     try:
         #save the pdb of the current model
         explicit_model_pdb = StringIO.StringIO()
